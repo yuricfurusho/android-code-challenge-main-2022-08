@@ -1,9 +1,11 @@
 package life.league.challenge.kotlin.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.yuricfurusho.composeui.PostListActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import life.league.challenge.kotlin.R
@@ -19,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        startActivity(Intent(this, PostListActivity::class.java))
+        finish()
     }
 
     override fun onResume() {
