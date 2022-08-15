@@ -20,8 +20,12 @@ import com.yuricfurusho.composeui.ui.theme.AndroidCodeChallengeMainTheme
 import com.yuricfurusho.composeui.ui.theme.Divider10pc
 
 @Composable
-fun PostListScreen() {
-    PostList(DummyUIData.postList)
+fun PostListScreen(vm: PostListViewModel) {
+    val postItemUIList = vm.postItemList.map {
+        PostItemUIBuilder().from(it)
+    }
+
+    PostList(postItemUIList)
 }
 
 @Composable
@@ -101,6 +105,6 @@ private fun PostItemBody(title: String, description: String) {
 @Composable
 fun DefaultPreview() {
     AndroidCodeChallengeMainTheme {
-        PostListScreen()
+        PostList(DummyUIData.postItemUIList)
     }
 }
