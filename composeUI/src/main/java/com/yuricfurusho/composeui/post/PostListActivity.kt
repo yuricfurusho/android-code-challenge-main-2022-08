@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.yuricfurusho.composeui.ui.theme.AndroidCodeChallengeMainTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PostListActivity : ComponentActivity() {
 
     private val vm: PostListViewModel by viewModels()
