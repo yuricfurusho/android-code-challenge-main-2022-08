@@ -10,4 +10,5 @@ java {
 
 dependencies {
     implementation project(path: ':domain-repo-interface')
+    implementation project(path: ':domain-data')
 }
