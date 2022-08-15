@@ -1,5 +1,7 @@
 package com.yuricfurusho.domain_repo_interface
 
-interface PostRepository {
+import com.yuricfurusho.domain_data.PostItem
 
+interface PostRepository {
+    fun getPostItemList(): List<PostItem>
 }
