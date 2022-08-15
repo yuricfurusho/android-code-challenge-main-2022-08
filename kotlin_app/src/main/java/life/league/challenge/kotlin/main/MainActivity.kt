@@ -34,9 +34,11 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
                 val account = Service.api.login("hello", "world")
-                Log.v(TAG, account.apiKey ?: "")
+            // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger.
+            //                Log.v(TAG, account.apiKey ?: "")
             } catch (t : Throwable) {
-                Log.e(TAG, t.message, t)
+                // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger.
+//                Log.e(TAG, t.message, t)
             }
         }
     }
