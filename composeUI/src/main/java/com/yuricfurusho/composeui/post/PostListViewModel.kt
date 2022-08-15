@@ -2,11 +2,15 @@ package com.yuricfurusho.composeui.post
 
 import androidx.lifecycle.ViewModel
 import com.yuricfurusho.domain_usecase.GetPostListUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-// TODO: we should have Hilt create the GetPostListUseCase instance for us
-class PostListViewModel : ViewModel() {
+@HiltViewModel
+class PostListViewModel @Inject constructor(
+    getPostListUseCase: GetPostListUseCase
+) : ViewModel() {
 
-    private val _postItemList = GetPostListUseCase().invoke()
+    private val _postItemList = getPostListUseCase()
     val postItemList = _postItemList
 
 }

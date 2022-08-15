@@ -1,10 +1,12 @@
 package com.yuricfurusho.domain_usecase
 
-import com.yuricfurusho.domain_data.DummyData
 import com.yuricfurusho.domain_data.PostItem
+import com.yuricfurusho.domain_repo_interface.PostRepository
+import javax.inject.Inject
 
-// TODO: we should add repository dependency later on and have data coming from there.
-class GetPostListUseCase {
+class GetPostListUseCase @Inject constructor(
+    private val postRepository: PostRepository,
+) {
 
-    operator fun invoke(): List<PostItem> = DummyData.postItemList
+    operator fun invoke(): List<PostItem> = postRepository.getPostItemList()
 }
