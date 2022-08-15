@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.yuricfurusho.composeui.PostListActivity
+import com.yuricfurusho.composeui.post.PostListActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import life.league.challenge.kotlin.R
