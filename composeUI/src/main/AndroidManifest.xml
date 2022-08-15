@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".PostListActivity"
+            android:name=".post.PostListActivity"
             android:exported="false"
             android:label="@string/title_activity_post_list"
             android:theme="@style/Theme.AndroidCodeChallengeMain" />
