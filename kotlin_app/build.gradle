@@ -52,6 +52,14 @@ dependencies {
     implementation project(path: ':composeUI')
     implementation project(path: ':domain-repo-interface')
     implementation project(path: ':data-repo-impl')
+
+    //Todo_Remove_After_Extracting_Login_Local_Data_Source_Binder_From_App_Module
+    implementation project(path: ':data-local-datasource')
+    implementation project(path: ':data-local-datasource-interface')
+
+    //todo remove after league api login is moved from main activty
+    implementation project(path: ':domain-usecase')
+
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

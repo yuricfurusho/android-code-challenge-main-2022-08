@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.kapt'
 }
 
 java {
@@ -9,6 +10,10 @@ java {
 }
 
 dependencies {
+    implementation "javax.inject:javax.inject:1"
+    implementation "com.google.dagger:hilt-core:$hilt_version"
     implementation project(path: ':domain-repo-interface')
     implementation project(path: ':domain-data')
+    implementation project(path: ':data-local-datasource-interface')
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 }
