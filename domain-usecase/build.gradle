@@ -10,6 +10,6 @@ java {
 
 dependencies {
     implementation "javax.inject:javax.inject:1"
-    implementation project(path: ':domain-data')
-    implementation project(path: ':domain-repo-interface')
+    implementation project(path: ':domain-dataentity')
+    implementation project(path: ':domain-repository-interface')
 }
