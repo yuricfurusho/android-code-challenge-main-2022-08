@@ -13,15 +13,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PostListActivity : ComponentActivity() {
+class UserPostListActivity : ComponentActivity() {
 
-    private val vm: PostListViewModel by viewModels()
+    private val vm: UserPostListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             AndroidCodeChallengeMainTheme {
-                PostListScreen(vm)
+                UserPostListScreen(vm)
             }
         }
         lifecycleScope.launch {
@@ -40,10 +40,10 @@ class PostListActivity : ComponentActivity() {
 
     override fun onResume() {
         super.onResume()
-        vm.loadPostList()
+        vm.loadUserPostList()
     }
 
     companion object {
-        private const val TAG = "PostListActivity"
+        private const val TAG = "UserPostListActivity"
     }
 }

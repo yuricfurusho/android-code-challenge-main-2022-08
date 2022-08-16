@@ -1,7 +1,7 @@
 package com.yuricfurusho.post
 
-class PostItemUIBuilder() {
-    fun from(postItem: PostItem) = PostItemUI(
+class UserPostItemUIBuilder() {
+    fun from(postItem: UserPostItem) = UserPostItemUI(
         userFullName = postItem.userFullName,
         userAvatarUrl = postItem.userAvatarUrl,
         title = postItem.title,

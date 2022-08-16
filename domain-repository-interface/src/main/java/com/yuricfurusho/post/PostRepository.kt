@@ -1,7 +1,7 @@
 package com.yuricfurusho.post
 
-import com.yuricfurusho.post.PostItem
+import com.yuricfurusho.post.UserPostItem
 
-interface PostRepository {
-    fun getPostItemList(): List<PostItem>
+interface UserPostRepository {
+    fun getUserPostItemList(): List<UserPostItem>
 }

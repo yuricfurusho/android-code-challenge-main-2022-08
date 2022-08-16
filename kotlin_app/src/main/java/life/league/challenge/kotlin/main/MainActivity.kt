@@ -3,7 +3,7 @@ package life.league.challenge.kotlin.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.yuricfurusho.post.PostListActivity
+import com.yuricfurusho.post.UserPostListActivity
 import life.league.challenge.kotlin.R
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        startActivity(Intent(this, PostListActivity::class.java))
+        startActivity(Intent(this, UserPostListActivity::class.java))
         finish()
     }
 }
