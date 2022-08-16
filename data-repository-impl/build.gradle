@@ -15,5 +15,6 @@ dependencies {
     implementation project(path: ':domain-model')
     implementation project(path: ':data-localdatasource-interface')
     implementation project(path: ':data-remotedatasource-interface')
+    implementation project(path: ':data-model')
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 }

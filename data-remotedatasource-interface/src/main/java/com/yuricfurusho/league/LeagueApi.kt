@@ -1,6 +1,6 @@
-package life.league.challenge.kotlin.api
+package com.yuricfurusho.league
 
-import life.league.challenge.kotlin.model.Account
+import com.yuricfurusho.account.AccountResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 
@@ -11,7 +11,7 @@ import retrofit2.http.Header
 interface LeagueApi {
 
     @GET("login")
-    suspend fun login(@Header("Authorization") credentials: String?): Account
+    suspend fun login(@Header("Authorization") credentials: String?): AccountResponse
 
     companion object {
         const val HOST = "https://engineering.league.dev/challenge/api/"
