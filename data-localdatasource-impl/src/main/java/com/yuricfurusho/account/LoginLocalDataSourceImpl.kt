@@ -27,4 +27,11 @@ class LoginLocalDataSourceImpl @Inject constructor(
         }
         //TODO LEAG-0033 return a boolean
     }
+
+    override fun loadApiKey(apiKey: String): String {
+        val sharedPref = appContext.getSharedPreferences(
+            LocalStorage.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE
+        )
+        return sharedPref.getString(LocalStorage.ACCOUNT_API_KEY, "") ?: ""
+    }
 }
