@@ -1,4 +1,4 @@
-package com.yuricfurusho.post
+package com.yuricfurusho.userpost
 
 import android.os.Bundle
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.yuricfurusho.post
+package com.yuricfurusho.userpost
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn

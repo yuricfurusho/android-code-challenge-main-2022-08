@@ -3,7 +3,7 @@ package life.league.challenge.kotlin.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.yuricfurusho.post.UserPostListActivity
+import com.yuricfurusho.userpost.UserPostListActivity
 import life.league.challenge.kotlin.R
 
 class MainActivity : AppCompatActivity() {

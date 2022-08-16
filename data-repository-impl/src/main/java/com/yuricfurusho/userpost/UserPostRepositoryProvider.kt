@@ -1,4 +1,4 @@
-package com.yuricfurusho.post
+package com.yuricfurusho.userpost
 
 import dagger.Module
 import dagger.Provides

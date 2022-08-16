@@ -1,4 +1,4 @@
-package com.yuricfurusho.post
+package com.yuricfurusho.userpost
 
 class UserPostItemUIBuilder() {
     fun from(userPostItem: UserPostItem) = UserPostItemUI(
