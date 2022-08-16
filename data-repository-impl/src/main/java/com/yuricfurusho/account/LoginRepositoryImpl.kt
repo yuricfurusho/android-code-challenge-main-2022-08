@@ -23,7 +23,7 @@ class LoginRepositoryImpl @Inject constructor(
             accountResultFlow.map { accountResult ->
                 accountResult.mapSuccessData { account ->
                     writingCoroutineScope.launch(Dispatchers.Default) {
-                        loginLocalDataSource.setApiKey(account)
+                        loginLocalDataSource.setApiKey(account.apiKey)
                     }
                 }
             }
