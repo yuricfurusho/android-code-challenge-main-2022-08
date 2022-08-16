@@ -1,4 +1,4 @@
-package com.yuricfurusho.composeui.post
+package com.yuricfurusho.post
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

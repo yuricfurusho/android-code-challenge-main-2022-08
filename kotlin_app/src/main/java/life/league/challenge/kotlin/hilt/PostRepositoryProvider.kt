@@ -1,7 +1,7 @@
 package life.league.challenge.kotlin.hilt
 
-import com.yuricfurusho.data_repo_impl.PostRepositoryImpl
-import com.yuricfurusho.domain_repo_interface.PostRepository
+import com.yuricfurusho.post.PostRepositoryImpl
+import com.yuricfurusho.post.PostRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

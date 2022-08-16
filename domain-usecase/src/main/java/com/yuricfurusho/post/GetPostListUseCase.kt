@@ -1,7 +1,7 @@
-package com.yuricfurusho.domain_usecase
+package com.yuricfurusho.post
 
-import com.yuricfurusho.domain_data.PostItem
-import com.yuricfurusho.domain_repo_interface.PostRepository
+import com.yuricfurusho.post.PostItem
+import com.yuricfurusho.post.PostRepository
 import javax.inject.Inject
 
 class GetPostListUseCase @Inject constructor(

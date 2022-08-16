@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.yuricfurusho.composeui.post.PostListActivity
+import com.yuricfurusho.post.PostListActivity
 import com.yuricfurusho.login.GetLoginAuthUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers

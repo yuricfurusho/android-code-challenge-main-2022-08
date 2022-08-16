@@ -1,7 +1,6 @@
 package com.yuricfurusho.login
 
 import android.util.Base64
-import com.yuricfurusho.data_local_datasource.LoginLocalDataSource
 import javax.inject.Inject
 
 class LoginLocalDataSourceImpl @Inject constructor() : LoginLocalDataSource {
