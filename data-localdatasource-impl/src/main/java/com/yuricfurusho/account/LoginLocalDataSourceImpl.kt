@@ -11,4 +11,9 @@ class LoginLocalDataSourceImpl @Inject constructor() : LoginLocalDataSource {
                     "$username:$password".toByteArray(),
                     Base64.NO_WRAP
                 )
+
+    override fun save(account: Account): Boolean {
+        return true
+        // TODO save to sharedPreferences, there is a new way look it up
+    }
 }

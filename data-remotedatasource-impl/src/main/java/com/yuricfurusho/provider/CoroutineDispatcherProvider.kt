@@ -1,4 +1,4 @@
-package com.yuricfurusho.account
+package com.yuricfurusho.provider
 
 import dagger.Module
 import dagger.Provides
