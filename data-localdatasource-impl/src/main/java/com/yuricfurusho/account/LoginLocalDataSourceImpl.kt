@@ -1,4 +1,4 @@
-package com.yuricfurusho.login
+package com.yuricfurusho.account
 
 import android.util.Base64
 import javax.inject.Inject
