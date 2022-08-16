@@ -1,7 +1,5 @@
-package com.yuricfurusho.post
+package com.yuricfurusho.userpost
 
-import com.yuricfurusho.post.UserPostItem
-import com.yuricfurusho.post.UserPostRepository
 import javax.inject.Inject
 
 class GetUserPostListUseCase @Inject constructor(
