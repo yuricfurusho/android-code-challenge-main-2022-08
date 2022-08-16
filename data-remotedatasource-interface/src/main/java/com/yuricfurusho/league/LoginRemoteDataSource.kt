@@ -1,7 +1,7 @@
 package com.yuricfurusho.league
 
-import com.yuricfurusho.account.AccountResponse
+import com.yuricfurusho.account.Account
 
 interface LoginRemoteDataSource {
-    suspend fun login(credentials: String): AccountResponse
+    suspend fun login(credentials: String): Account
 }
