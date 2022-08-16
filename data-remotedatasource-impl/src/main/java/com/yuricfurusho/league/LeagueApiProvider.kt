@@ -1,10 +1,9 @@
-package life.league.challenge.kotlin.hilt
+package com.yuricfurusho.league
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import life.league.challenge.kotlin.api.LeagueApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

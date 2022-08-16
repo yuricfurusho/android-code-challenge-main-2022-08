@@ -44,21 +44,16 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.google.code.gson:gson:2.8.9'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "com.google.dagger:hilt-android:$hilt_version"
     implementation project(path: ':ui-compose')
+    implementation project(path: ':domain-model')
+    implementation project(path: ':domain-usecase')
     implementation project(path: ':domain-repository-interface')
     implementation project(path: ':data-repository-impl')
-
-    //todo remove after extracting login local data source binder from app module
     implementation project(path: ':data-localdatasource-impl')
     implementation project(path: ':data-localdatasource-interface')
-
-    //todo remove after league api login is moved from main activty
-    implementation project(path: ':domain-usecase')
+    implementation project(path: ':data-remotedatasource-impl')
+    implementation project(path: ':data-remotedatasource-interface')
 
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
     testImplementation 'junit:junit:4.13.2'

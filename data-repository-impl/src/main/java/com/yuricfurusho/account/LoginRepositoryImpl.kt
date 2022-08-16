@@ -10,7 +10,7 @@ class LoginRepositoryImpl @Inject constructor(
     override fun getLoginAuth(username: String, password: String): String =
         loginLocalDataSource.getLoginAuth(username, password)
 
-    override fun login(credentials: String): String =
-        loginRemoteDataSource.login(credentials)
+    override suspend fun login(credentials: String): Account =
+        AccountBuilder().from(loginRemoteDataSource.login(credentials))
 
 }
