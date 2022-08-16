@@ -23,9 +23,11 @@ class LoginRepositoryImpl @Inject constructor(
             accountResultFlow.map { accountResult ->
                 accountResult.mapSuccessData { account ->
                     writingCoroutineScope.launch(Dispatchers.Default) {
-                        loginLocalDataSource.save(account)
+                        loginLocalDataSource.setApiKey(account)
                     }
                 }
             }
         }
+
+    override suspend fun getLoggedSessionApikey(): String = loginLocalDataSource.getApiKey()
 }

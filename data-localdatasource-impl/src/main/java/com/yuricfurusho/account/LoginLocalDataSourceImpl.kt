@@ -16,14 +16,14 @@ class LoginLocalDataSourceImpl @Inject constructor(
                     Base64.NO_WRAP
                 )
 
-    override fun save(account: Account) {
+    override fun setApiKey(apiKey: String) {
         with(sharedPref.edit()) {
-            putString(LeagueStorage.ACCOUNT_API_KEY, account.apiKey)
+            putString(LeagueStorage.ACCOUNT_API_KEY, apiKey)
             apply()
         }
         //TODO LEAG-0033 return a boolean
     }
 
-    override fun loadApiKey(apiKey: String): String =
+    override fun getApiKey(): String =
         sharedPref.getString(LeagueStorage.ACCOUNT_API_KEY, "") ?: ""
 }
