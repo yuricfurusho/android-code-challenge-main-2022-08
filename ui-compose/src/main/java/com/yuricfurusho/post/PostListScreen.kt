@@ -21,19 +21,19 @@ import com.yuricfurusho.composeui.ui.theme.Divider10pc
 
 @Composable
 fun UserPostListScreen(vm: UserPostListViewModel) {
-    val postItemUIList = vm.postItemList.map {
+    val userPostItemUIList = vm.userPostItemList.map {
         UserPostItemUIBuilder().from(it)
     }
 
-    UserPostList(postItemUIList)
+    UserPostList(userPostItemUIList)
 }
 
 @Composable
-fun UserPostList(postList: List<UserPostItemUI>) {
+fun UserPostList(userPostList: List<UserPostItemUI>) {
     LazyColumn {
-        itemsIndexed(postList) { index, postItemUI ->
-            UserPostItem(postItemUI)
-            if (index < postList.lastIndex)
+        itemsIndexed(userPostList) { index, userPostItemUI ->
+            UserPostItem(userPostItemUI)
+            if (index < userPostList.lastIndex)
                 Divider(
                     modifier = Modifier.padding(start = 12.dp),
                     color = Divider10pc
@@ -43,11 +43,11 @@ fun UserPostList(postList: List<UserPostItemUI>) {
 }
 
 @Composable
-fun UserPostItem(postItemUI: UserPostItemUI) {
+fun UserPostItem(userPostItemUI: UserPostItemUI) {
     Column(modifier = Modifier.padding(12.dp)) {
-        UserPostItemHeader(postItemUI.userAvatarUrl, postItemUI.userFullName)
+        UserPostItemHeader(userPostItemUI.userAvatarUrl, userPostItemUI.userFullName)
         Spacer(modifier = Modifier.height(8.dp))
-        UserPostItemBody(postItemUI.title, postItemUI.description)
+        UserPostItemBody(userPostItemUI.title, userPostItemUI.description)
     }
 }
 
@@ -105,6 +105,6 @@ private fun UserPostItemBody(title: String, description: String) {
 @Composable
 fun DefaultPreview() {
     AndroidCodeChallengeMainTheme {
-        UserPostList(DummyUIData.postItemUIList)
+        UserPostList(DummyUIData.userPostItemUIList)
     }
 }

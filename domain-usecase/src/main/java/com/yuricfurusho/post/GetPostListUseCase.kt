@@ -5,8 +5,8 @@ import com.yuricfurusho.post.UserPostRepository
 import javax.inject.Inject
 
 class GetUserPostListUseCase @Inject constructor(
-    private val postRepository: UserPostRepository,
+    private val userPostRepository: UserPostRepository,
 ) {
 
-    operator fun invoke(): List<UserPostItem> = postRepository.getUserPostItemList()
+    operator fun invoke(): List<UserPostItem> = userPostRepository.getUserPostItemList()
 }

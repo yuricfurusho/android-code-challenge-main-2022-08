@@ -19,8 +19,8 @@ class UserPostListViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
-    private val _postItemList = getUserPostListUseCase()
-    val postItemList = _postItemList
+    private val _userPostItemList = getUserPostListUseCase()
+    val userPostItemList = _userPostItemList
 
     private val _accountResult = MutableStateFlow<Result<Account>>(Result.Inactive)
     val accountResult: StateFlow<Result<Account>> = _accountResult
