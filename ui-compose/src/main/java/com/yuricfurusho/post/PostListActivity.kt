@@ -5,14 +5,12 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.yuricfurusho.account.Account
-import com.yuricfurusho.account.LoginUseCase
 import com.yuricfurusho.composeui.ui.theme.AndroidCodeChallengeMainTheme
+import com.yuricfurusho.statewrapper.Result
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class PostListActivity : ComponentActivity() {
@@ -26,10 +24,26 @@ class PostListActivity : ComponentActivity() {
                 PostListScreen(vm)
             }
         }
+        lifecycleScope.launch {
+            vm.accountResult.flowWithLifecycle(lifecycle).collect {
+                when (it) {
+                    // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger and move it to data layer
+                    is Result.Success -> Log.v(TAG, it.data.apiKey ?: "")
+                    is Result.Error -> Log.e(TAG, it.errorMessage)
+                    is Result.Inactive -> Unit
+                    is Result.Loading -> Unit //TODO LEAG-0029: add UI feedback for loading
+                    is Result.NetworkError -> Log.e(TAG, "Network Error")
+                }
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
         vm.loadPostList()
+    }
+
+    companion object {
+        private const val TAG = "PostListActivity"
     }
 }

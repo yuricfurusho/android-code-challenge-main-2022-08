@@ -25,7 +25,7 @@ sealed class Result<out R> {
         }
     }
 
-    fun <T> map(transform: (R) -> T): Result<T> =
+    fun <T> mapSuccessData(transform: (R) -> T): Result<T> =
         when (this) {
             is Success -> Success(transform(this.data))
             is Error -> Error(this.code, this.errorMessage)
