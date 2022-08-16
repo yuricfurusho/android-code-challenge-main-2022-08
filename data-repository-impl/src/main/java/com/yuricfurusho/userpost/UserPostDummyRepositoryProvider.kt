@@ -8,8 +8,8 @@ import dagger.hilt.components.SingletonComponent
 //TODO Yuri: LEAG-0012: research about correct scoping
 @Module
 @InstallIn(SingletonComponent::class)
-class UserPostRepositoryProvider {
+class UserPostDummyRepositoryProvider {
 
     @Provides
-    fun providesUserPostRepository(): UserPostRepository = UserPostRepositoryImpl()
+    fun providesUserPostDummyRepository(): UserPostDummyRepository = UserPostDummyRepositoryImpl()
 }
