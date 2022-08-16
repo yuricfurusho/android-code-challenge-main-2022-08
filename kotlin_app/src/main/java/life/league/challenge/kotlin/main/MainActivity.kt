@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.yuricfurusho.account.LoginUseCase
 import com.yuricfurusho.post.PostListActivity
-import com.yuricfurusho.account.GetLoginAuthUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject lateinit var leagueApi: LeagueApi
-    @Inject lateinit var getLoginAuthUseCase: GetLoginAuthUseCase
+    @Inject lateinit var loginUseCase: LoginUseCase
 
     companion object {
         private const val TAG = "MainActivity"
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // somewhere else differently depending on your chosen architecture
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                val account = leagueApi.login(getLoginAuthUseCase("hello", "world"))
+                val account = loginUseCase("hello", "world")
                 // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger.
                 //                Log.v(TAG, account.apiKey ?: "")
             } catch (t : Throwable) {
