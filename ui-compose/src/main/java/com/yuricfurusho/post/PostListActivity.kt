@@ -18,7 +18,6 @@ import javax.inject.Inject
 class PostListActivity : ComponentActivity() {
 
     private val vm: PostListViewModel by viewModels()
-    @Inject lateinit var loginUseCase: LoginUseCase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,22 +30,6 @@ class PostListActivity : ComponentActivity() {
 
     override fun onResume() {
         super.onResume()
-
-        // example api call to login, feel free to delete this and implement the call to login
-        // somewhere else differently depending on your chosen architecture
-        lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                val account: Account = loginUseCase("hello", "world")
-                // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger.
-                Log.v(TAG, account.apiKey ?: "")
-            } catch (t : Throwable) {
-                // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger.
-                Log.e(TAG, t.message, t)
-            }
-        }
-    }
-
-    companion object {
-        private const val TAG = "PostListActivity"
+        vm.loadPostList()
     }
 }
