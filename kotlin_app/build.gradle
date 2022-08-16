@@ -52,10 +52,10 @@ dependencies {
     implementation project(path: ':ui-compose')
     implementation project(path: ':domain-repository-interface')
     implementation project(path: ':data-repository-impl')
+
+    //todo remove after extracting login local data source binder from app module
     implementation project(path: ':data-localdatasource-impl')
     implementation project(path: ':data-localdatasource-interface')
-
-    //Todo_Remove_After_Extracting_Login_Local_Data_Source_Binder_From_App_Module
 
     //todo remove after league api login is moved from main activty
     implementation project(path: ':domain-usecase')
