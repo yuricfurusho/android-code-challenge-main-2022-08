@@ -20,19 +20,19 @@ import com.yuricfurusho.composeui.ui.theme.AndroidCodeChallengeMainTheme
 import com.yuricfurusho.composeui.ui.theme.Divider10pc
 
 @Composable
-fun PostListScreen(vm: PostListViewModel) {
+fun UserPostListScreen(vm: UserPostListViewModel) {
     val postItemUIList = vm.postItemList.map {
-        PostItemUIBuilder().from(it)
+        UserPostItemUIBuilder().from(it)
     }
 
-    PostList(postItemUIList)
+    UserPostList(postItemUIList)
 }
 
 @Composable
-fun PostList(postList: List<PostItemUI>) {
+fun UserPostList(postList: List<UserPostItemUI>) {
     LazyColumn {
         itemsIndexed(postList) { index, postItemUI ->
-            PostItem(postItemUI)
+            UserPostItem(postItemUI)
             if (index < postList.lastIndex)
                 Divider(
                     modifier = Modifier.padding(start = 12.dp),
@@ -43,16 +43,16 @@ fun PostList(postList: List<PostItemUI>) {
 }
 
 @Composable
-fun PostItem(postItemUI: PostItemUI) {
+fun UserPostItem(postItemUI: UserPostItemUI) {
     Column(modifier = Modifier.padding(12.dp)) {
-        PostItemHeader(postItemUI.userAvatarUrl, postItemUI.userFullName)
+        UserPostItemHeader(postItemUI.userAvatarUrl, postItemUI.userFullName)
         Spacer(modifier = Modifier.height(8.dp))
-        PostItemBody(postItemUI.title, postItemUI.description)
+        UserPostItemBody(postItemUI.title, postItemUI.description)
     }
 }
 
 @Composable
-private fun PostItemHeader(userAvatarUrl: String, userFullName: String) {
+private fun UserPostItemHeader(userAvatarUrl: String, userFullName: String) {
     Row(
         modifier = Modifier.height(IntrinsicSize.Max),
     ) {
@@ -89,7 +89,7 @@ private fun UserAvatarImage(userAvatarUrl: String) {
 }
 
 @Composable
-private fun PostItemBody(title: String, description: String) {
+private fun UserPostItemBody(title: String, description: String) {
     Column {
         Text(
             text = title,
@@ -105,6 +105,6 @@ private fun PostItemBody(title: String, description: String) {
 @Composable
 fun DefaultPreview() {
     AndroidCodeChallengeMainTheme {
-        PostList(DummyUIData.postItemUIList)
+        UserPostList(DummyUIData.postItemUIList)
     }
 }

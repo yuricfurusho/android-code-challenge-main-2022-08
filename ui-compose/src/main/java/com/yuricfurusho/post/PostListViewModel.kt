@@ -14,18 +14,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PostListViewModel @Inject constructor(
-    getPostListUseCase: GetPostListUseCase,
+class UserPostListViewModel @Inject constructor(
+    getUserPostListUseCase: GetUserPostListUseCase,
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
-    private val _postItemList = getPostListUseCase()
+    private val _postItemList = getUserPostListUseCase()
     val postItemList = _postItemList
 
     private val _accountResult = MutableStateFlow<Result<Account>>(Result.Inactive)
     val accountResult: StateFlow<Result<Account>> = _accountResult
 
-    fun loadPostList() {
+    fun loadUserPostList() {
         viewModelScope.launch {
             _accountResult.emitAll(loginUseCase("hello", "world"))
         }

@@ -1,12 +1,12 @@
 package com.yuricfurusho.post
 
-import com.yuricfurusho.post.PostItem
-import com.yuricfurusho.post.PostRepository
+import com.yuricfurusho.post.UserPostItem
+import com.yuricfurusho.post.UserPostRepository
 import javax.inject.Inject
 
-class GetPostListUseCase @Inject constructor(
-    private val postRepository: PostRepository,
+class GetUserPostListUseCase @Inject constructor(
+    private val postRepository: UserPostRepository,
 ) {
 
-    operator fun invoke(): List<PostItem> = postRepository.getPostItemList()
+    operator fun invoke(): List<UserPostItem> = postRepository.getUserPostItemList()
 }
