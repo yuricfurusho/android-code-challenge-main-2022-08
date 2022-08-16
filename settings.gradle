@@ -15,7 +15,7 @@ dependencyResolutionManagement {
 rootProject.name = "android-code-challenge-main"
 include ':kotlin_app'
 include ':ui-compose'
-include ':domain-dataentity'
+include ':domain-model'
 include ':domain-usecase'
 include ':domain-repository-interface'
 include ':data-repository-impl'

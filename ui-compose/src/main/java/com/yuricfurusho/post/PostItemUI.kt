@@ -1,6 +1,6 @@
-package com.yuricfurusho.domain_data
+package com.yuricfurusho.post
 
-data class PostItem(
+data class PostItemUI(
     val userFullName: String,
     val userAvatarUrl: String,
     val title: String,

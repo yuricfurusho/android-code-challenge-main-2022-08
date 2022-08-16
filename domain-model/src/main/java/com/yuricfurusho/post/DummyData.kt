@@ -1,4 +1,4 @@
-package com.yuricfurusho.domain_data
+package com.yuricfurusho.post
 
 object DummyData {
 

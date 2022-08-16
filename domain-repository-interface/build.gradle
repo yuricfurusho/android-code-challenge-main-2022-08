@@ -9,6 +9,7 @@ java {
 }
 
 dependencies {
-    implementation project(path: ':domain-dataentity')
+    implementation project(path: ':domain-model')
 }
+
 

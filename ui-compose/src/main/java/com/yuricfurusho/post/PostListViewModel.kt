@@ -1,7 +1,6 @@
-package com.yuricfurusho.composeui.post
+package com.yuricfurusho.post
 
 import androidx.lifecycle.ViewModel
-import com.yuricfurusho.domain_usecase.GetPostListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.yuricfurusho.composeui.post
+package com.yuricfurusho.post
 
 object DummyUIData {
 

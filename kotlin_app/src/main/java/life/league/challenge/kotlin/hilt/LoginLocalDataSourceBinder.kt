@@ -1,6 +1,6 @@
 package life.league.challenge.kotlin.hilt
 
-import com.yuricfurusho.data_local_datasource.LoginLocalDataSource
+import com.yuricfurusho.login.LoginLocalDataSource
 import com.yuricfurusho.login.LoginLocalDataSourceImpl
 import dagger.Binds
 import dagger.Module
