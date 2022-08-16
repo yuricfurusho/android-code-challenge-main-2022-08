@@ -1,6 +1,7 @@
 package com.yuricfurusho.league
 
 import com.yuricfurusho.account.AccountResponse
+import com.yuricfurusho.user.UserResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 
@@ -12,6 +13,9 @@ interface LeagueApi {
 
     @GET("login")
     suspend fun login(@Header("Authorization") credentials: String?): AccountResponse
+
+    @GET("users")
+    suspend fun getUserList(@Header("x-access-token") apiKey: String): List<UserResponse>
 
     companion object {
         const val HOST = "https://engineering.league.dev/challenge/api/"
