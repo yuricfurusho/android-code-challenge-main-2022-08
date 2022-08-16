@@ -16,9 +16,10 @@ class LoginLocalDataSourceImpl @Inject constructor(
                     Base64.NO_WRAP
                 )
 
-    override fun setApiKey(apiKey: String) {
+    override fun setApiKey(apiKey: String?) {
+        val apiKeyNonNull = apiKey ?: ""
         with(sharedPref.edit()) {
-            putString(LeagueStorage.ACCOUNT_API_KEY, apiKey)
+            putString(LeagueStorage.ACCOUNT_API_KEY, apiKeyNonNull)
             apply()
         }
         //TODO LEAG-0033 return a boolean
