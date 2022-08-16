@@ -1,13 +1,12 @@
 package com.yuricfurusho.account
 
-import android.content.Context
+import android.content.SharedPreferences
 import android.util.Base64
-import com.yuricfurusho.localstorage.LocalStorage
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.yuricfurusho.localstorage.LeagueStorage
 import javax.inject.Inject
 
 class LoginLocalDataSourceImpl @Inject constructor(
-    @ApplicationContext private val appContext: Context
+    private val sharedPref: SharedPreferences,
 ) : LoginLocalDataSource {
 
     override fun getLoginAuth(username: String, password: String): String =
@@ -18,20 +17,13 @@ class LoginLocalDataSourceImpl @Inject constructor(
                 )
 
     override fun save(account: Account) {
-        val sharedPref = appContext.getSharedPreferences(
-            LocalStorage.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE
-        )
         with(sharedPref.edit()) {
-            putString(LocalStorage.ACCOUNT_API_KEY, account.apiKey)
+            putString(LeagueStorage.ACCOUNT_API_KEY, account.apiKey)
             apply()
         }
         //TODO LEAG-0033 return a boolean
     }
 
-    override fun loadApiKey(apiKey: String): String {
-        val sharedPref = appContext.getSharedPreferences(
-            LocalStorage.PREFERENCE_FILE_KEY, Context.MODE_PRIVATE
-        )
-        return sharedPref.getString(LocalStorage.ACCOUNT_API_KEY, "") ?: ""
-    }
+    override fun loadApiKey(apiKey: String): String =
+        sharedPref.getString(LeagueStorage.ACCOUNT_API_KEY, "") ?: ""
 }
