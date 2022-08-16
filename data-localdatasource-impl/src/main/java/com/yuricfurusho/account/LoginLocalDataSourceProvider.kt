@@ -1,8 +1,10 @@
 package com.yuricfurusho.account
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 
 //TODO Yuri: LEAG-0012: research about correct scoping
@@ -11,5 +13,7 @@ import dagger.hilt.components.SingletonComponent
 class LoginLocalDataSourceProvider {
 
     @Provides
-    fun providesLoginLocalDataSource(): LoginLocalDataSource = LoginLocalDataSourceImpl()
+    fun providesLoginLocalDataSource(
+        @ApplicationContext context: Context
+    ): LoginLocalDataSource = LoginLocalDataSourceImpl(context)
 }
