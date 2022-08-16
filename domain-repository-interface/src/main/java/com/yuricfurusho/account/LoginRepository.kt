@@ -1,4 +1,4 @@
-package com.yuricfurusho.login
+package com.yuricfurusho.account
 
 interface LoginRepository {
     fun getLoginAuth(username: String, password: String): String

@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.yuricfurusho.post.PostListActivity
-import com.yuricfurusho.login.GetLoginAuthUseCase
+import com.yuricfurusho.account.GetLoginAuthUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

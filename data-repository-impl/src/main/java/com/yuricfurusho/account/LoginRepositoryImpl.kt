@@ -1,4 +1,4 @@
-package com.yuricfurusho.login
+package com.yuricfurusho.account
 
 import javax.inject.Inject
 
