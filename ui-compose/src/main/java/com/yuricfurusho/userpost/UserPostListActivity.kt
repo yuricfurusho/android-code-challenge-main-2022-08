@@ -28,7 +28,10 @@ class UserPostListActivity : ComponentActivity() {
             vm.accountResult.flowWithLifecycle(lifecycle).collect {
                 when (it) {
                     // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger and move it to data layer
-                    is Result.Success -> Log.v(TAG, it.data.apiKey ?: "")
+                    is Result.Success -> {
+                        Log.v(TAG, it.data.apiKey ?: "")
+                        vm.loadUserPostList()
+                    }
                     is Result.Error -> Log.e(TAG, it.errorMessage)
                     is Result.Inactive -> Unit
                     is Result.Loading -> Unit //TODO LEAG-0029: add UI feedback for loading
@@ -40,7 +43,7 @@ class UserPostListActivity : ComponentActivity() {
 
     override fun onResume() {
         super.onResume()
-        vm.loadUserPostList()
+        vm.login()
     }
 
     companion object {
