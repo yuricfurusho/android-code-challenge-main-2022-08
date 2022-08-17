@@ -30,7 +30,7 @@ class UserPostListActivity : ComponentActivity() {
                     // TODO LEAG-0014: Replace Android logging with java.util.logging.Logger and move it to data layer
                     is Result.Success -> {
                         Log.v(TAG, it.data.apiKey ?: "")
-                        vm.loadUserPostList()
+                        vm.loadUserPostList(it.data.apiKey ?: "")
                     }
                     is Result.Error -> Log.e(TAG, it.errorMessage)
                     is Result.Inactive -> Unit
