@@ -23,7 +23,7 @@ class LoginRepositoryImpl @Inject constructor(
 
     override suspend fun login(credentials: String): Flow<Result<Account>> =
         loginRemoteDataSource.login(credentials)
-            .also { accountResultFlow -> //TODO
+            .also { accountResultFlow -> //TODO LEAG-0044 extract wrapper/unwrapper saving apiKey to function review Dispatcher, should be IO
                 writingCoroutineScope.launch(Dispatchers.Default) {
                     loginLocalDataSource.setApiKey(
                         accountResultFlow
