@@ -20,8 +20,8 @@ class GetUserPostListUseCase @Inject constructor(
         getUserListUseCase(apiKey),
         getPostListUseCase(apiKey)
     ) { userListResult, postListResult ->
-
-        val userList: MutableList<User> = mutableListOf<User>()
+        //TODO LEAG-0045 Look into Extracting these into functions
+        val userList: MutableList<User> = mutableListOf()
         userListResult.mapSuccessData {
             userList.addAll(it)
         }
