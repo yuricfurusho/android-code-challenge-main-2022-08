@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -21,11 +22,7 @@ import com.yuricfurusho.composeui.ui.theme.Divider10pc
 
 @Composable
 fun UserPostListScreen(vm: UserPostListViewModel) {
-    val userPostItemUIList = vm.userPostItemList.map {
-        UserPostItemUIBuilder().from(it)
-    }
-
-    UserPostList(userPostItemUIList)
+    UserPostList(vm.userPostItemUIList.collectAsState().value)
 }
 
 @Composable
