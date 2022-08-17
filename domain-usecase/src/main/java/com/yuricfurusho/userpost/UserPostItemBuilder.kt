@@ -6,7 +6,7 @@ import com.yuricfurusho.user.User
 class UserPostItemBuilder {
     fun from(
         postList: List<Post>,
-        userList: MutableList<User>
+        userList: List<User>
     ) = postList.map { post ->
         UserPostItem(
             userFullName = userList.first { it.id == post.userId }.name,
