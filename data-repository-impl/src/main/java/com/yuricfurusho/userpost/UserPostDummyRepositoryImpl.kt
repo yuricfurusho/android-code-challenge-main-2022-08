@@ -1,5 +1,5 @@
 package com.yuricfurusho.userpost
 
 class UserPostDummyRepositoryImpl : UserPostDummyRepository {
-    override fun getUserPostItemList(): List<UserPostItem> = DummyData.userPostItemList
+    override fun getUserPostItemDummyList(): List<UserPostItem> = DummyData.userPostItemList
 }

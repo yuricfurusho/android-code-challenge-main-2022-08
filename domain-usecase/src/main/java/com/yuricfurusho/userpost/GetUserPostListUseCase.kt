@@ -9,32 +9,23 @@ import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
 
 class GetUserPostListUseCase @Inject constructor(
-//    private val userPostRepository: UserPostDummyRepository,
+//    private val userPostDummyRepository: UserPostDummyRepository,
     private val getUserListUseCase: GetUserListUseCase,
     private val getPostListUseCase: GetPostListUseCase,
 ) {
 
-    //    operator fun invoke(): List<UserPostItem> = getUserListUseCase.getUserPostItemList()
+    //    operator fun invoke(): List<UserPostItem> = userPostDummyRepository.getUserPostItemDummyList()
 
     suspend operator fun invoke(apiKey: String): Flow<Result<List<UserPostItem>>> = combine(
         getUserListUseCase(apiKey),
         getPostListUseCase(apiKey)
     ) { userListResult, postListResult ->
-        //TODO LEAG-0045 Look into Extracting these into functions
         val userList: MutableList<User> = mutableListOf()
         userListResult.mapSuccessData {
             userList.addAll(it)
         }
-
         postListResult.mapSuccessData { postList ->
-            postList.map { post ->
-                UserPostItem(
-                    userFullName = userList.first { it.id == post.userId }.name,
-                    userAvatarUrl = userList.first { it.id == post.userId }.avatarUrl,
-                    title = post.title,
-                    description = post.description,
-                )
-            }
+            UserPostItemBuilder().from(postList, userList)
         }
     }
 }

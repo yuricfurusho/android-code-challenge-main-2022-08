@@ -1,5 +1,5 @@
 package com.yuricfurusho.userpost
 
 interface UserPostDummyRepository {
-    fun getUserPostItemList(): List<UserPostItem>
+    fun getUserPostItemDummyList(): List<UserPostItem>
 }
