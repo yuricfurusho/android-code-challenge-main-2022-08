@@ -41,9 +41,9 @@ class UserPostListViewModel @Inject constructor(
         }
     }
 
-    fun loadUserPostList() {
+    fun loadUserPostList(apiKey: String) {
         viewModelScope.launch {
-            _userPostItemListResult.emitAll(getUserPostListUseCase())
+            _userPostItemListResult.emitAll(getUserPostListUseCase(apiKey))
         }
     }
 }
