@@ -21,19 +21,20 @@ class LoginRepositoryImpl @Inject constructor(
     override fun getLoginAuth(username: String, password: String): String =
         loginLocalDataSource.getLoginAuth(username, password)
 
-    override suspend fun login(credentials: String): Flow<Result<Account>> {
-        val accountResultFlow: Flow<Result<Account>> = loginRemoteDataSource.login(credentials)
-        writingCoroutineScope.launch(Dispatchers.Default) {
-            loginLocalDataSource.setApiKey(
-                accountResultFlow
-                    .filter { it.succeeded }
-                    .map { accountResult ->
-                        (accountResult as Result.Success).data.apiKey
-                    }.lastOrNull() ?: ""
-            )
-        }
-        return accountResultFlow
-    }
+    override suspend fun login(credentials: String): Flow<Result<Account>> =
+        loginRemoteDataSource.login(credentials)
+            .also { accountResultFlow -> //TODO
+                writingCoroutineScope.launch(Dispatchers.Default) {
+                    loginLocalDataSource.setApiKey(
+                        accountResultFlow
+                            .filter { it.succeeded }
+                            .map { accountResult ->
+                                (accountResult as Result.Success).data.apiKey
+                            }.lastOrNull() ?: ""
+                    )
+                }
+            }
+
 
     override suspend fun getLoggedSessionApikey(): String = loginLocalDataSource.getApiKey()
 }
