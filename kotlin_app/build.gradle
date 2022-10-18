@@ -36,26 +36,24 @@ android {
 
 // Feel free to add, remove or change dependencies as you see fit
 dependencies {
-    implementation "androidx.core:core-ktx:$core_ktx_version"
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
+    implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    implementation project(path: ':ui-compose')
-    implementation project(path: ':domain-model')
-    implementation project(path: ':domain-usecase')
-    implementation project(path: ':domain-repository-interface')
-    implementation project(path: ':data-repository-impl')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.6.1'
     implementation project(path: ':data-localdatasource-impl')
     implementation project(path: ':data-localdatasource-interface')
     implementation project(path: ':data-remotedatasource-impl')
     implementation project(path: ':data-remotedatasource-interface')
-
+    implementation project(path: ':data-repository-impl')
+    implementation project(path: ':domain-model')
+    implementation project(path: ':domain-repository-interface')
+    implementation project(path: ':domain-usecase')
+    implementation project(path: ':ui-compose')
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
-    testImplementation 'junit:junit:4.13.2'
     testImplementation "io.mockk:mockk:1.10.0"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation 'junit:junit:4.13.2'
 }

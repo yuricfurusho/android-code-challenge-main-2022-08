@@ -18,6 +18,7 @@ class LeagueApiProvider {
     fun providesLeagueApi(): LeagueApi = Retrofit.Builder()
         .baseUrl(LeagueApi.HOST)
         .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(LeagueApi::class.java)
 }

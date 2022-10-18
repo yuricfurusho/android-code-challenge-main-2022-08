@@ -13,7 +13,7 @@ class PostRemoteDataSourceImpl @Inject constructor(
     private val coroutineDispatcher: CoroutineDispatcher,
     private val leagueApi: LeagueApi
 ) : PostRemoteDataSource {
-    override suspend fun getPostList(apiKey: String): Flow<Result<List<Post>>> =
+    override fun getPostList(apiKey: String): Flow<Result<List<Post>>> =
         flowWrapper.wrap(coroutineDispatcher) {
             leagueApi.getPostList(apiKey)
         }.map { result ->

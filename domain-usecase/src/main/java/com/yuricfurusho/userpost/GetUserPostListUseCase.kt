@@ -1,5 +1,6 @@
 package com.yuricfurusho.userpost
 
+import com.yuricfurusho.account.LoginUseCase
 import com.yuricfurusho.post.GetPostListUseCase
 import com.yuricfurusho.statewrapper.Result
 import com.yuricfurusho.user.GetUserListUseCase
